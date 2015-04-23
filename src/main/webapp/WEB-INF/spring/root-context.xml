@@ -50,6 +50,26 @@
 				<beans:value>com.wealthtax.chillifrog.cashflow.CashFlow</beans:value>
 				<beans:value>com.wealthtax.chillifrog.cashflow.CashFlowType</beans:value>
 				<beans:value>com.wealthtax.chillifrog.assets.Networthcashother</beans:value>
+				<beans:value>com.wealthtax.chillifrog.config.defaultyearconfig.DefaultYear
+				</beans:value>
+				<beans:value>com.wealthtax.chillifrog.config.countryconfig.Country
+				</beans:value>
+				<beans:value>com.wealthtax.chillifrog.config.inflationrateconfig.InflationRate
+				</beans:value>
+				<beans:value>com.wealthtax.chillifrog.config.assetallocationconfig.AssetAllocationConfig
+				</beans:value>
+				<beans:value>com.wealthtax.chillifrog.config.dividenttaxratesconfig.DividentTaxRates
+				</beans:value>
+				<beans:value>com.wealthtax.chillifrog.config.taxformulainforconfig.TaxFormulaInformation
+				</beans:value>
+				<beans:value>com.wealthtax.chillifrog.config.capitalgainstaxrateconfig.CapitalGainsTaxRate
+				</beans:value>
+				<beans:value>com.wealthtax.chillifrog.config.equitymarketreturnsconfig.EquityMarketReturns
+				</beans:value>
+				<beans:value>com.wealthtax.chillifrog.config.incometaxrateconfig.IncomeTaxRate
+				</beans:value>
+				<beans:value>com.wealthtax.chillifrog.config.spendingratesconfig.SpendingRates
+				</beans:value>
 			</beans:list>
 		</beans:property>
 		<beans:property name="hibernateProperties">
@@ -92,6 +112,117 @@
     <beans:bean id="cashFlowService" class="com.wealthtax.chillifrog.cashflow.CashFlowServiceImpl">
         <beans:property name="cashFlowDao" ref="cashFlowDao"></beans:property>
     </beans:bean>
+    
+    <beans:bean id="taxFormulaInformationDAO"
+		class="com.wealthtax.chillifrog.config.taxformulainforconfig.TaxFormulaInformationDAOImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="taxFormulaInformationService"
+		class="com.wealthtax.chillifrog.config.taxformulainforconfig.TaxFormulaInformationServiceImpl">
+		<beans:property name="taxFormulaInformationDAO" ref="taxFormulaInformationDAO"></beans:property>
+	</beans:bean>
+
+
+
+
+	<beans:bean id="countryDAO"
+		class="com.wealthtax.chillifrog.config.countryconfig.CountryDAOImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+
+	<beans:bean id="countryService"
+		class="com.wealthtax.chillifrog.config.countryconfig.CountryServiceImpl">
+		<beans:property name="countryDAO" ref="countryDAO"></beans:property>
+	</beans:bean>
+	<beans:bean id="defaultYearDAO"
+		class="com.wealthtax.chillifrog.config.defaultyearconfig.DefaultYearDAOImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+
+	<beans:bean id="defaultYearService"
+		class="com.wealthtax.chillifrog.config.defaultyearconfig.DefaultYearServiceImpl">
+		<beans:property name="defaultYearDAO" ref="defaultYearDAO"></beans:property>
+	</beans:bean>
+
+
+	<beans:bean id="spendingRatesDAO"
+		class="com.wealthtax.chillifrog.config.spendingratesconfig.SpendingRatesDAOImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+
+	<beans:bean id="spendingRatesService"
+		class="com.wealthtax.chillifrog.config.spendingratesconfig.SpendingRatesServiceImpl">
+		<beans:property name="spendingRatesDAO" ref="spendingRatesDAO"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="inflationRateService"
+		class="com.wealthtax.chillifrog.config.inflationrateconfig.InflationRateServiceImpl">
+		<beans:property name="inflationRateDAO" ref="inflationRateDAO"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="inflationRateDAO"
+		class="com.wealthtax.chillifrog.config.inflationrateconfig.InflationRateDAOImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="incomeTaxService"
+		class="com.wealthtax.chillifrog.config.incometaxrateconfig.IncomeTaxServiceImpl">
+		<beans:property name="incomeTaxRateDAO" ref="incomeTaxRateDAO"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="incomeTaxRateDAO"
+		class="com.wealthtax.chillifrog.config.incometaxrateconfig.IncomeTaxRateDAOImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+
+	<beans:bean id="capitalGainsTaxRateService"
+		class="com.wealthtax.chillifrog.config.capitalgainstaxrateconfig.CapitalGainsTaxRateServiceImpl">
+		<beans:property name="capitalGainsTaxRateDAO" ref="capitalGainsTaxRateDAO"></beans:property>
+	</beans:bean>
+	<beans:bean id="equityMarketReturnsService"
+		class="com.wealthtax.chillifrog.config.equitymarketreturnsconfig.EquityMarketReturnsServiceImpl">
+		<beans:property name="equityMarketReturnsDAO" ref="equityMarketReturnsDAO"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="equityMarketReturnsDAO"
+		class="com.wealthtax.chillifrog.config.equitymarketreturnsconfig.EquityMarketReturnsDAOImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+
+
+	<beans:bean id="capitalGainsTaxRateDAO"
+		class="com.wealthtax.chillifrog.config.capitalgainstaxrateconfig.CapitalGainsTaxRateDAOImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+
+
+	<beans:bean id="assetAllocationConfigDAO"
+		class="com.wealthtax.chillifrog.config.assetallocationconfig.AssetAllocationConfigDAOImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="assetAllocationConfigService"
+		class="com.wealthtax.chillifrog.config.assetallocationconfig.AssetAllocationConfigServiceImpl">
+		<beans:property name="assetAllocationConfigDAO" ref="assetAllocationConfigDAO"></beans:property>
+	</beans:bean>
+
+	<beans:bean id="dividentTaxRatesDAO"
+		class="com.wealthtax.chillifrog.config.dividenttaxratesconfig.DividentTaxRatesDAOImpl">
+		<beans:property name="sessionFactory"
+			ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="dividentTaxRatesService"
+		class="com.wealthtax.chillifrog.config.dividenttaxratesconfig.DividentTaxRatesServiceImpl">
+		<beans:property name="dividentTaxRatesDAO" ref="dividentTaxRatesDAO"></beans:property>
+	</beans:bean>
+    
 
 	<context:component-scan base-package="com.wealthtax.chillifrog" />
 
