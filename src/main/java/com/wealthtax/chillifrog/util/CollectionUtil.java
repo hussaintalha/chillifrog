@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.wealthtax.chillifrog.utils;
+package com.wealthtax.chillifrog.util;
 
 /**
  * @author mouzama
@@ -199,6 +199,11 @@ public class CollectionUtil {
 	}
 	
 	
+	/**
+	 * Method will return current year
+	 * 
+	 * @return year
+	 */
 	public static int getCurrentYear()
 	{
 		Calendar now = Calendar.getInstance();   // Gets the current date and time
